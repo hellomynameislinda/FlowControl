@@ -11,6 +11,7 @@ namespace FlowControl
     {
         internal string Name { get; set; } // Only used to save a fake "name"
         internal uint Age { get; set; }
+
         public CinemaVisitor(string name, uint age) {
             Name = name;
             Age = age;

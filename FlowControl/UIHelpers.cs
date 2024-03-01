@@ -14,7 +14,7 @@ namespace FlowControl
         public const string ThirdWord = "4";
         public const string Quit = "0";
 
-        internal static void DisplayMenu() {
+        internal static void DisplayMainMenu() {
             Console.Clear();
             Console.WriteLine("WELCOME TO FLOW CONTOL");
             Console.WriteLine("Select an activity by entering a number from the menu:");
@@ -23,6 +23,14 @@ namespace FlowControl
                 $"{RepeatTen}. Repeat Ten\n" +
                 $"{ThirdWord}. Third Word\n" +
                 $"{Quit}. Quit");
+        }
+
+        internal static void DisplayCinemaSubMenu()
+        {
+            Console.WriteLine("Select an activity by entering a number from the menu:");
+            Console.WriteLine($"{CinemaTicket}. Add cinema visitors\n" +
+                $"{CinemaGroup}. Check cinema ticket total\n" +
+                $"{Quit}. Back to main menu");
         }
     }
 }

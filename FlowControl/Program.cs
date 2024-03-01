@@ -13,7 +13,7 @@ namespace FlowControl
 
             do
             {
-                UIHelpers.DisplayMenu();
+                UIHelpers.DisplayMainMenu();
 
                 string input = Console.ReadLine();
 
