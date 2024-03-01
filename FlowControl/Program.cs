@@ -4,7 +4,7 @@ namespace FlowControl
 {
     internal class Program
     {
-        //            private static Cinema cinema = new Cinema();
+//        private static Cinema cinema = new Cinema();
         private static RepeatTen repeatTen = new RepeatTen();
         private static ThirdWord thirdWord = new ThirdWord();
 
@@ -20,10 +20,11 @@ namespace FlowControl
                 switch (input)
                 {
                     case "1":
-                        // TODO
+                        CinemaTicket.RunCheckCinemaPrice();
                         break;
                     case "2":
                         // TODO
+                        CinemaGroup.RunCheckCinemaGroupPrice();
                         break;
                     case "3":
                         repeatTen.RunRepeatTen();
@@ -32,23 +33,22 @@ namespace FlowControl
                         thirdWord.RunThirdWord();
                         break;
                     case "0":
+                        Console.WriteLine("Good bye!");
+                        Environment.Exit(0);
                         break;
                     default:
-                        Environment.Exit(0);
+                        // TODO: Add message to correct
                         break;
                 }
                 // VISA UT MENY
 
                 //-- Ta hand om val, inklusive koll att de är korrekta
                 /*
-                 * Berätta för användaren att de har kommit till huvudmenyn och de kommer navigera
-                 * genom att skriva in siffror för att testa olika funktioner.
+
                  * 2. Skapa skalet till en Switch-sats som till en början har Två Cases. Ett för ”0” som
                  * stänger ner programmet och ett default som berättar att det är felaktig input.
                  * 3. Skapa en oändlig iteration, alltså något som inte tar slut innan vi säger till att den
                  * ska ta slut. Detta löser ni med att skapa en egen bool med tillhörande while-loop.
-                 * 4. Bygg ut menyn med val att exekvera de övriga övningarna.
-
                  */
 
 
@@ -76,7 +76,7 @@ namespace FlowControl
                  * ● Samt totalkostnad för hela sällskapet
                  */
 
-                Console.WriteLine("\n\nPress enter to continue...");
+                Console.WriteLine("\n\nPress enter to select a new activity...");
                 Console.ReadLine(); // To pause during development
             } while (true);
         }

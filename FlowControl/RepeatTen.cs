@@ -8,7 +8,7 @@ namespace FlowControl
 {
     internal class RepeatTen
     {
-        public string InputString { get; set; }
+        private string InputString { get; set; }
 
         public void RunRepeatTen()
         {

@@ -8,7 +8,7 @@ namespace FlowControl
 {
     internal class ThirdWord
     {
-        public string InputString { get; set; }
+        internal string InputString { get; set; }
 
         public void RunThirdWord()
         {
@@ -36,7 +36,7 @@ namespace FlowControl
                 Console.WriteLine("Type a minimum of three words:"); // TODO: Change message on faulty input.
                 InputString = Console.ReadLine();
                 // TODO: Validate to text only
-                if (string.IsNullOrWhiteSpace(InputString))
+                if (!string.IsNullOrWhiteSpace(InputString)) // Make sure we 
                 {
                     string[] stringAsWords = InputString.Split(' ');
                     if (stringAsWords.Length > 2)

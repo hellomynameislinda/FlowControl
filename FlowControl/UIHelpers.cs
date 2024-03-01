@@ -8,8 +8,8 @@ namespace FlowControl
 {
     internal class UIHelpers
     {
-        public const string Cinema1 = "1";
-        public const string Cinema2 = "2";
+        public const string CinemaTicket = "1";
+        public const string CinemaGroup = "2";
         public const string RepeatTen = "3";
         public const string ThirdWord = "4";
         public const string Quit = "0";
@@ -17,8 +17,9 @@ namespace FlowControl
         internal static void DisplayMenu() {
             Console.Clear();
             Console.WriteLine("WELCOME TO FLOW CONTOL");
-            Console.WriteLine($"{Cinema1}. Cinema1\n" +
-                $"{Cinema2}. Cinema2\n" +
+            Console.WriteLine("Select an activity by entering a number from the menu:");
+            Console.WriteLine($"{CinemaTicket}. Check cinema ticket price\n" +
+                $"{CinemaGroup}. Check cinema ticket price for group\n" +
                 $"{RepeatTen}. Repeat Ten\n" +
                 $"{ThirdWord}. Third Word\n" +
                 $"{Quit}. Quit");
