@@ -38,7 +38,7 @@ namespace FlowControl
                 // TODO: Validate to text only
                 if (!string.IsNullOrWhiteSpace(InputString)) // Make sure we 
                 {
-                    string[] stringAsWords = InputString.Split(' ');
+                    string[] stringAsWords = InputString.Split(' ').Where(x => !string.IsNullOrWhiteSpace(x)).ToArray(); // Where added to remove empty elements due to double (and triple+) spaces.
                     if (stringAsWords.Length > 2)
                     {
                         Console.WriteLine($"The third word of the string is: {stringAsWords[2]}");
@@ -46,6 +46,8 @@ namespace FlowControl
                     }
                 }
             } while (true);
+
+            UIHelpers.PauseAfterTask();
         }
     }
 }

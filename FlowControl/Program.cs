@@ -4,16 +4,23 @@ namespace FlowControl
 {
     internal class Program
     {
-//        private static Cinema cinema = new Cinema();
         private static RepeatTen repeatTen = new RepeatTen();
         private static ThirdWord thirdWord = new ThirdWord();
 
         static void Main(string[] args)
         {
+            string errorMsg = "";
 
             do
             {
-                UIHelpers.DisplayMainMenu();
+                if (errorMsg.Length > 0) // Upon a faulty selection - Display error message instead of reloading menu
+                {
+                    Console.WriteLine(errorMsg);
+                    errorMsg = "";
+                }
+                else {
+                    UIHelpers.DisplayMainMenu();
+                }
 
                 string input = Console.ReadLine();
 
@@ -37,7 +44,7 @@ namespace FlowControl
                         Environment.Exit(0);
                         break;
                     default:
-                        // TODO: Add message to correct
+                        errorMsg = "Please make a valid selection.";
                         break;
                 }
                 // VISA UT MENY
@@ -76,8 +83,6 @@ namespace FlowControl
                  * ● Samt totalkostnad för hela sällskapet
                  */
 
-                Console.WriteLine("\n\nPress enter to select a new activity...");
-                Console.ReadLine(); // To pause during development
             } while (true);
         }
     }

@@ -44,6 +44,8 @@ namespace FlowControl
                 }
             } while (true);
 
+            UIHelpers.PauseAfterTask();
+
         }
     }
 }

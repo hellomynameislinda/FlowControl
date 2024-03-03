@@ -64,9 +64,11 @@ namespace FlowControl
 
             } while (errorMsg.Length > 0);
 
+            UIHelpers.PauseAfterTask();
+
         }
 
-        private static int GetPriceByAge(uint age, bool print = false)
+        internal static uint GetPriceByAge(uint age, bool print = false)
         {
             if (age < 20) // Kids under 20
             {   

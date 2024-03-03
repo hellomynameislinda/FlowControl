@@ -1,4 +1,6 @@
-﻿namespace FlowControl
+﻿using System.Text.RegularExpressions;
+
+namespace FlowControl
 {
     internal class CinemaGroup
     {
@@ -22,9 +24,19 @@
             //Prepare screen
             Console.Clear();
             Console.WriteLine("Welcome to Cinema Group Price Check!");
+
+            string errorMsg = "";
             do
             {
-                UIHelpers.DisplayCinemaSubMenu();
+                if (errorMsg.Length > 0) // Upon a faulty selection - Display error message instead of reloading menu
+                {
+                    Console.WriteLine(errorMsg);
+                    errorMsg = "";
+                }
+                else
+                {
+                    UIHelpers.DisplayCinemaSubMenu();
+                }
 
                 string input = Console.ReadLine();
 
@@ -40,7 +52,7 @@
                     case "0":
                         return; // No break needed as return goes back one step further (exiting the whole function) instead. Removed to avoid warnings.
                     default:
-                        // TODO: Add message to correct
+                        errorMsg = "Please make a valid selection.";
                         break;
                 }
 
@@ -57,6 +69,9 @@
                 //    }
                 //}
             } while (true);
+
+            UIHelpers.PauseAfterTask();
+
         }
 
         internal static void AddGroupMembers()
@@ -109,12 +124,14 @@
 
         internal static void DisplayCinemaGroupTotal()
         {
-            Console.WriteLine("This function will show all the group members and a total price");
+            uint totalCost = 0;
             foreach (CinemaVisitor groupMember in cinemaGroupMembers)
             {
-                Console.WriteLine($"{groupMember.Name} Age: {groupMember.Age}");
+                Console.WriteLine($"{groupMember.Name} Age: {groupMember.Age} Price: {CinemaTicket.GetPriceByAge(groupMember.Age)}");
+                totalCost += CinemaTicket.GetPriceByAge(groupMember.Age);
             }
-            //    // cinemaGroup.ToArray();
+
+            Console.WriteLine($"Total cost for this group is {totalCost}\n");
         }
     }
 }
