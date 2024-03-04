@@ -56,18 +56,6 @@ namespace FlowControl
                         break;
                 }
 
-                //Console.WriteLine("Type a minimum of three words:"); // TODO: Change message on faulty input.
-                //InputString = Console.ReadLine();
-                //// TODO: Validate to text only
-                //if (!string.IsNullOrWhiteSpace(InputString)) // Make sure we 
-                //{
-                //    string[] stringAsWords = InputString.Split(' ');
-                //    if (stringAsWords.Length > 2)
-                //    {
-                //        Console.WriteLine($"The third word of the string is: {stringAsWords[2]}");
-                //        break;      //Break out of the loop only after valid input
-                //    }
-                //}
             } while (true);
 
             UIHelpers.PauseAfterTask();
@@ -96,16 +84,18 @@ namespace FlowControl
 
             for (int i = 1; i <= numberOfGroupMembers; i++)
             { // Starting i at 1 to name the group members aptly
-                do
-                {
-                    Console.WriteLine((errorMsg.Length > 0) ? errorMsg : $"Enter the age of visitor {i}:"); // On first run, display instructions. On subsequent runs, display error message
-                    errorMsg = ""; // Reset for each try
-                    inputString = Console.ReadLine();
-                    errorMsg = "Error: Age must be written in digits. Please try again."; // Will only ever be displayed if the test in while does not return true
-                } while (!uint.TryParse(inputString, out age));
+                //do
+                //{
+                //    Console.WriteLine((errorMsg.Length > 0) ? errorMsg : $"Enter the age of visitor {i}:"); // On first run, display instructions. On subsequent runs, display error message
+                //    errorMsg = ""; // Reset for each try
+                //    inputString = Console.ReadLine();
+                //    errorMsg = "Error: Age must be written in digits. Please try again."; // Will only ever be displayed if the test in while does not return true
+                //} while (!uint.TryParse(inputString, out age));
+
+                age = CinemaVisitor.ReadVisitorAge($"Enter the age of visitor {i}:");
 
                 // TODO: Add checks for age interval - use the same as in CinemaTicket.
-                errorMsg = "";
+//                errorMsg = "";
 
                 AddCinemaVisitor("Visitor " + i, age);
             }
@@ -114,11 +104,6 @@ namespace FlowControl
 
         internal static void AddCinemaVisitor(string name, uint age)
         {
-            //CinemaVisitor myVisitor = new CinemaVisitor(name, age);
-
-            //cinemaGroupMembers.Add(myVisitor);
-            //Console.WriteLine("A visitor is added with the age " + myVisitor.Age);
-
             cinemaGroupMembers.Add(new CinemaVisitor(name, age));
         }
 
@@ -127,10 +112,11 @@ namespace FlowControl
             uint totalCost = 0;
             foreach (CinemaVisitor groupMember in cinemaGroupMembers)
             {
-                Console.WriteLine($"{groupMember.Name} Age: {groupMember.Age} Price: {CinemaTicket.GetPriceByAge(groupMember.Age)}");
+//                Console.WriteLine($"{groupMember.Name} Age: {groupMember.Age} Price: {CinemaTicket.GetPriceByAge(groupMember.Age)}");
                 totalCost += CinemaTicket.GetPriceByAge(groupMember.Age);
             }
 
+            Console.WriteLine($"{cinemaGroupMembers.Count} people are going to the cinema.\n");
             Console.WriteLine($"Total cost for this group is {totalCost}\n");
         }
     }

@@ -15,7 +15,12 @@ namespace FlowControl
         public const string ThirdWord = "4";
         public const string Quit = "0";
 
-        internal static void DisplayMainMenu(bool clear = true) {
+        internal static void DisplayMainMenu(bool clear = true)
+        {
+            /*
+             * Displays the main meny, with or without clearing the screen. Not clearing 
+             * the screen can be used in case of error messages.
+             */
             if (clear)
                 Console.Clear();
             Console.WriteLine("WELCOME TO FLOW CONTOL");
@@ -29,6 +34,9 @@ namespace FlowControl
 
         internal static void DisplayCinemaSubMenu()
         {
+            /*
+             * Displays sub menu for the Cinema group ticket part of the application
+             */
             Console.WriteLine("\nSelect an activity by entering a number from the menu:");
             Console.WriteLine($"{CinemaTicket}. Add cinema visitors\n" +
                 $"{CinemaGroup}. Check cinema ticket total\n" +
@@ -37,6 +45,10 @@ namespace FlowControl
 
         internal static void PauseAfterTask()
         {
+            /*
+             * Used after finishing each part of the application, to give the user time to 
+             * review the rults before going back to the main menu.
+             */
             Console.WriteLine("\n\nPress enter to select a new activity...");
             Console.ReadLine();
         }

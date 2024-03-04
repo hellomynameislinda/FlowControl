@@ -1,9 +1,15 @@
 ﻿using System;
 
+
 namespace FlowControl
 {
     internal class Program
     {
+        /*
+         * Note: I needed to practice static vs non-static functions, hence the difference
+         * between the first two parts of the application and the last two. 
+         * */
+
         private static RepeatTen repeatTen = new RepeatTen();
         private static ThirdWord thirdWord = new ThirdWord();
 
@@ -30,7 +36,6 @@ namespace FlowControl
                         CinemaTicket.RunCheckCinemaPrice();
                         break;
                     case "2":
-                        // TODO
                         CinemaGroup.RunCheckCinemaGroupPrice();
                         break;
                     case "3":
@@ -48,16 +53,6 @@ namespace FlowControl
                         break;
                 }
                 // VISA UT MENY
-
-                //-- Ta hand om val, inklusive koll att de är korrekta
-                /*
-
-                 * 2. Skapa skalet till en Switch-sats som till en början har Två Cases. Ett för ”0” som
-                 * stänger ner programmet och ett default som berättar att det är felaktig input.
-                 * 3. Skapa en oändlig iteration, alltså något som inte tar slut innan vi säger till att den
-                 * ska ta slut. Detta löser ni med att skapa en egen bool med tillhörande while-loop.
-                 */
-
 
 
                 // VAL 1 + 2

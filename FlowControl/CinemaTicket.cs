@@ -29,40 +29,43 @@ namespace FlowControl
             Console.Clear();
             Console.WriteLine("Welcome to Cinema Price Check!");
 
-            uint inputAge;
-            string errorMsg = "";
+            //uint inputAge;
+            //string errorMsg = "";
 
-            do
-            {
-                Console.WriteLine((errorMsg.Length > 0) ? errorMsg : "Please enter your age: "); // On first run, display instructions. On subsequent runs, display error message
-                errorMsg = ""; // Reset for each try
+            //do
+            //{
+            //    Console.WriteLine((errorMsg.Length > 0) ? errorMsg : "Please enter your age: "); // On first run, display instructions. On subsequent runs, display error message
+            //    errorMsg = ""; // Reset for each try
 
-                InputString = Console.ReadLine();
+            //    InputString = Console.ReadLine();
 
-                if (!string.IsNullOrWhiteSpace(InputString))
-                {
-                    if (uint.TryParse(InputString, out inputAge))
-                    {
-                        if (inputAge >= 0 && inputAge <= 120) // Check if inputAge is "reasonable"
-                        {
-                            GetPriceByAge(inputAge, true);
-                        }
-                        else
-                        {
-                            errorMsg = "Error: This is not a valid age. Please try again:";
-                        }
-                    }
-                    else
-                    {
-                        errorMsg = "Error: Age has to be written in digits. Please try again:";
-                    }
-                }
-                else
-                {
-                    errorMsg = "Error: This is not a valid input: Please try again:";
-                }
+            //    if (!string.IsNullOrWhiteSpace(InputString))
+            //    {
+            //        if (uint.TryParse(InputString, out inputAge))
+            //        {
+            //            if (inputAge >= 0 && inputAge <= 120) // Check if inputAge is "reasonable"
+            //            {
+            //                GetPriceByAge(inputAge, true);
+            //            }
+            //            else
+            //            {
+            //                errorMsg = "Error: This is not a valid age. Please try again:";
+            //            }
+            //        }
+            //        else
+            //        {
+            //            errorMsg = "Error: Age has to be written in digits. Please try again:";
+            //        }
+            //    }
+            //    else
+            //    {
+            //        errorMsg = "Error: This is not a valid input. Please try again:";
+            //    }
 
-            } while (errorMsg.Length > 0);
+            //} while (errorMsg.Length > 0);
+
+            uint visitorAge = CinemaVisitor.ReadVisitorAge("Please enter your age: ");
+            GetPriceByAge(visitorAge, true);
 
             UIHelpers.PauseAfterTask();
 
