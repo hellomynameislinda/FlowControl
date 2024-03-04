@@ -25,7 +25,7 @@ namespace FlowControl
                 Console.Clear();
             Console.WriteLine("WELCOME TO FLOW CONTOL");
             Console.WriteLine("Select an activity by entering a number from the menu:");
-            Console.WriteLine($"{CinemaTicket}. Check cinema ticket price\n" +
+            Console.WriteLine($"{CinemaTicket}. Check cinema singel ticket price\n" +
                 $"{CinemaGroup}. Check cinema ticket price for group\n" +
                 $"{RepeatTen}. Repeat Ten\n" +
                 $"{ThirdWord}. Third Word\n" +
@@ -36,6 +36,7 @@ namespace FlowControl
         {
             /*
              * Displays sub menu for the Cinema group ticket part of the application
+             * I chose to separate adding users and showing the total, to make it
              */
             Console.WriteLine("\nSelect an activity by entering a number from the menu:");
             Console.WriteLine($"{CinemaTicket}. Add cinema visitors\n" +

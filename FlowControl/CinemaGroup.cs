@@ -15,12 +15,6 @@ namespace FlowControl
 
             cinemaGroupMembers = new List<CinemaVisitor>(); // Adding this to the function starting this part of the program, as the constructor is never run.
 
-            // Ask how many tickets
-            // Iterate that number of times, ask for age
-            // Count and display total
-            //
-
-
             //Prepare screen
             Console.Clear();
             Console.WriteLine("Welcome to Cinema Group Price Check!");
@@ -84,19 +78,7 @@ namespace FlowControl
 
             for (int i = 1; i <= numberOfGroupMembers; i++)
             { // Starting i at 1 to name the group members aptly
-                //do
-                //{
-                //    Console.WriteLine((errorMsg.Length > 0) ? errorMsg : $"Enter the age of visitor {i}:"); // On first run, display instructions. On subsequent runs, display error message
-                //    errorMsg = ""; // Reset for each try
-                //    inputString = Console.ReadLine();
-                //    errorMsg = "Error: Age must be written in digits. Please try again."; // Will only ever be displayed if the test in while does not return true
-                //} while (!uint.TryParse(inputString, out age));
-
                 age = CinemaVisitor.ReadVisitorAge($"Enter the age of visitor {i}:");
-
-                // TODO: Add checks for age interval - use the same as in CinemaTicket.
-//                errorMsg = "";
-
                 AddCinemaVisitor("Visitor " + i, age);
             }
 
@@ -116,8 +98,8 @@ namespace FlowControl
                 totalCost += CinemaTicket.GetPriceByAge(groupMember.Age);
             }
 
-            Console.WriteLine($"{cinemaGroupMembers.Count} people are going to the cinema.\n");
-            Console.WriteLine($"Total cost for this group is {totalCost}\n");
+            Console.WriteLine($"\n{cinemaGroupMembers.Count} people are going to the cinema.");
+            Console.WriteLine($"Total cost for this group is {totalCost}kr\n");
         }
     }
 }
